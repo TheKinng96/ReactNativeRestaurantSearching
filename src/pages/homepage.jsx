@@ -8,6 +8,15 @@ const HomePage = () => {
   const [term, setTerm] = useState('');
   const [searchApi, results, errorMessage] = useResults();
 
+  const filterResultsByPrice = (price) => {
+    return results.filter(result => {
+      console.log(result.price)
+      return result.price === price;
+    })
+  }
+
+
+
   return (
     <View>
       <SearchBar 
@@ -19,15 +28,19 @@ const HomePage = () => {
       <Text>We have found {results.length} results</Text>
       <ResultsList 
         title="Cost Effective"
-
+        results={filterResultsByPrice('$')}
       />
       <ResultsList 
         title="Bit Pricier"
-
+        results={filterResultsByPrice('$$')}
       />
       <ResultsList 
         title="Big Spender"
-
+        results={filterResultsByPrice('$$$')}
+      />
+      <ResultsList 
+        title="No Reviews"
+        results={filterResultsByPrice()}
       />
 
     </View>
