@@ -33,14 +33,17 @@ const HomePage = () => {
         <ResultsList 
           title="Bit Pricier"
           results={filterResultsByPrice('￥￥')}
+
         />
         <ResultsList 
           title="Big Spender"
           results={filterResultsByPrice('￥￥￥')}
+
         />
         <ResultsList 
           title="No Reviews"
           results={filterResultsByPrice()}
+
         />
       </ScrollView>
 
